@@ -1,0 +1,31 @@
+button {
+  font-size: 1rem;
+}
+
+h2,
+h3,
+h4,
+h5,
+a {
+  color: white;
+}
+
+.bg-grey {
+  background-color: #343434;
+}
+
+.bg-dark-grey {
+  background-color: #2b2b2b;
+}
+
+.copywright {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  padding: 20px 0 20px;
+}
+
+.copywright p {
+  margin: 0;
+}

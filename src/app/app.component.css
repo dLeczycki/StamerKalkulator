@@ -1,0 +1,11 @@
+.container {
+  min-height: 50vh;
+}
+
+app-navbar {
+  min-height: 10vh;
+}
+
+app-footer {
+  min-height: 40vh;
+}

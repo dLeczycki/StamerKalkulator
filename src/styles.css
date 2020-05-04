@@ -1,10 +1,22 @@
 @import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-@import '../node_modules/font-awesome/css/font-awesome.min.css';
+@import '../node_modules/bootswatch/dist/lux/bootstrap.min.css';
+@import '../node_modules/alertifyjs/build/css/alertify.min.css';
+@import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
+@import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.img-logo {
+  max-width: 200px;
+  padding-right: 30px;
+}
+
+.toggler {
+  font-size: 2rem;
 }
 
 @media (max-width: 768px) {}
