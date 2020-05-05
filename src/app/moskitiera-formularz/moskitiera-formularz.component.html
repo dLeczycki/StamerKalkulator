@@ -1,0 +1,60 @@
+<form class="form" [formGroup]="calculatorForm" (ngSubmit)="calculate()">
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <input type="text"
+          [ngClass]="{'is-invalid': calculatorForm.get('width').errors && calculatorForm.get('width').touched}"
+          class="form-control" formControlName="width" placeholder="Szerokość [mm]">
+        <div class="invalid-feedback"
+          *ngIf="calculatorForm.get('width').hasError('required') && calculatorForm.get('width').touched">Pole nie może
+          byc puste</div>
+        <div class="invalid-feedback"
+          *ngIf="calculatorForm.get('width').hasError('min') && calculatorForm.get('width').touched">Szerokość musi byc
+          większa niż 30mm</div>
+        <div class="invalid-feedback"
+          *ngIf="calculatorForm.get('width').hasError('max') && calculatorForm.get('width').touched">Szerokość nie może
+          przekraczać 150mm
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <input type="text"
+          [ngClass]="{'is-invalid': calculatorForm.get('height').errors && calculatorForm.get('height').touched}"
+          class="form-control" formControlName="height" placeholder="Wysokość [mm]">
+        <div class="invalid-feedback"
+          *ngIf="calculatorForm.get('height').hasError('required') && calculatorForm.get('height').touched">Pole nie
+          może
+          byc puste</div>
+        <div class="invalid-feedback"
+          *ngIf="calculatorForm.get('height').hasError('min') && calculatorForm.get('height').touched">Wysokość musi byc
+          większa niż 100mm</div>
+        <div class="invalid-feedback"
+          *ngIf="calculatorForm.get('height').hasError('max') && calculatorForm.get('height').touched">Wysokość nie może
+          przekraczać 220mm
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class=" form-group">
+        <input type="text"
+          [ngClass]="{'is-invalid': calculatorForm.get('profile').errors && calculatorForm.get('profile').touched}"
+          class="form-control" formControlName="profile" placeholder="Profil rozporowy [mb]">
+        <div class="invalid-feedback"
+          *ngIf="calculatorForm.get('profile').hasError('min') && calculatorForm.get('profile').touched">Wprowadzona
+          wartość musi byc większa od 0
+        </div>
+      </div>
+    </div>
+    <div class="col position-relative">
+      <input class="checkbox center-content" type="checkbox" [checked]="cornerConnector"
+        (change)="cornerConnector = !cornerConnector" formControlName="cornerConnector" />
+    </div>
+    <div class="col position-relative">
+      <div class="form-group">
+        <p class="center-content"><span>{{actualPrice.toFixed(2)}}</span> zł</p>
+      </div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-success">Oblicz</button>
+</form>
