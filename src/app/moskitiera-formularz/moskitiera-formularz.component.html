@@ -4,7 +4,7 @@
       <div class="form-group">
         <input type="text"
           [ngClass]="{'is-invalid': calculatorForm.get('width').errors && calculatorForm.get('width').touched}"
-          class="form-control" formControlName="width" placeholder="Szerokość [mm]">
+          class="form-control" formControlName="width" placeholder="Szerokość [mm]" (change)="calculate()">
         <div class="invalid-feedback"
           *ngIf="calculatorForm.get('width').hasError('required') && calculatorForm.get('width').touched">Pole nie może
           byc puste</div>
@@ -21,7 +21,7 @@
       <div class="form-group">
         <input type="text"
           [ngClass]="{'is-invalid': calculatorForm.get('height').errors && calculatorForm.get('height').touched}"
-          class="form-control" formControlName="height" placeholder="Wysokość [mm]">
+          class="form-control" formControlName="height" placeholder="Wysokość [mm]" (change)="calculate()">
         <div class="invalid-feedback"
           *ngIf="calculatorForm.get('height').hasError('required') && calculatorForm.get('height').touched">Pole nie
           może
@@ -39,7 +39,7 @@
       <div class=" form-group">
         <input type="text"
           [ngClass]="{'is-invalid': calculatorForm.get('profile').errors && calculatorForm.get('profile').touched}"
-          class="form-control" formControlName="profile" placeholder="Profil rozporowy [mb]">
+          class="form-control" formControlName="profile" placeholder="Profil rozporowy [mb]" (change)="calculate()">
         <div class="invalid-feedback"
           *ngIf="calculatorForm.get('profile').hasError('min') && calculatorForm.get('profile').touched">Wprowadzona
           wartość musi byc większa od 0
@@ -48,7 +48,7 @@
     </div>
     <div class="col position-relative">
       <input class="checkbox center-content" type="checkbox" [checked]="cornerConnector"
-        (change)="cornerConnector = !cornerConnector" formControlName="cornerConnector" />
+        (change)="cornerConnector = !cornerConnector; calculate();" formControlName="cornerConnector" />
     </div>
     <div class="col position-relative">
       <div class="form-group">
@@ -56,5 +56,4 @@
       </div>
     </div>
   </div>
-  <button type="submit" class="btn btn-success">Oblicz</button>
 </form>

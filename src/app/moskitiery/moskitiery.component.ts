@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./moskitiery.component.css']
 })
 export class MoskitieryComponent implements OnInit {
+  sum = 0;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  sendResult(result: number) {
+    this.sum += result;
+  }
 }

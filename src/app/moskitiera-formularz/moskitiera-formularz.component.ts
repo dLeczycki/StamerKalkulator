@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@Angular/forms';
 import { AlertifyService } from '../_services/alertify.service';
 
@@ -8,6 +8,9 @@ import { AlertifyService } from '../_services/alertify.service';
   styleUrls: ['./moskitiera-formularz.component.css']
 })
 export class MoskitieraFormularzComponent implements OnInit {
+  @Output() result = new EventEmitter();
+
+
   calculatorForm: FormGroup;
   actualPrice = 0.00;
   widthMin = 30;
@@ -63,9 +66,11 @@ export class MoskitieraFormularzComponent implements OnInit {
       if (this.calculatorForm.controls['profile'].value != '') {
         price = price + (this.calculatorForm.controls['profile'].value * 11);
       }
+      let priceDifference = price - this.actualPrice;
       this.actualPrice = price;
+      this.result.emit(priceDifference);
     } else {
-      this.alertify.error("Wprowadzone wartości są nieprawidłowe lub nie zostały wprowadzone");
+      this.actualPrice = 0;
     }
   }
 

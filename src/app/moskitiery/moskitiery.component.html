@@ -7,4 +7,7 @@
   <div class="col">Koszt</div>
 </div>
 <hr>
-<app-moskitiera-formularz></app-moskitiera-formularz>
+<app-moskitiera-formularz (result)="sendResult($event)"></app-moskitiera-formularz>
+<div class="sum">
+  <h2>Razem: <span>{{sum.toFixed(2)}}</span> zł</h2>
+</div>
