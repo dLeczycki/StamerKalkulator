@@ -7,7 +7,7 @@
           class="form-control" formControlName="width" placeholder="Szerokość [mm]" (change)="calculate()">
         <div class="invalid-feedback"
           *ngIf="calculatorForm.get('width').hasError('required') && calculatorForm.get('width').touched">Pole nie może
-          byc puste</div>
+          być puste</div>
         <div class="invalid-feedback"
           *ngIf="calculatorForm.get('width').hasError('min') && calculatorForm.get('width').touched">Szerokość musi byc
           większa niż 30mm</div>
@@ -25,7 +25,7 @@
         <div class="invalid-feedback"
           *ngIf="calculatorForm.get('height').hasError('required') && calculatorForm.get('height').touched">Pole nie
           może
-          byc puste</div>
+          być puste</div>
         <div class="invalid-feedback"
           *ngIf="calculatorForm.get('height').hasError('min') && calculatorForm.get('height').touched">Wysokość musi byc
           większa niż 100mm</div>
@@ -49,6 +49,21 @@
     <div class="col position-relative">
       <input class="checkbox center-content" type="checkbox" [checked]="cornerConnector"
         (change)="cornerConnector = !cornerConnector; calculate();" formControlName="cornerConnector" />
+    </div>
+    <div class="col">
+      <div class="form-group">
+        <input type="text"
+          [ngClass]="{'is-invalid': calculatorForm.get('count').errors && calculatorForm.get('count').touched}"
+          class="form-control" formControlName="count" placeholder="Ilość" (change)="calculate()">
+        <div class="invalid-feedback"
+          *ngIf="calculatorForm.get('count').hasError('required') && calculatorForm.get('count').touched">Pole nie
+          może
+          być puste</div>
+        <div class="invalid-feedback"
+          *ngIf="calculatorForm.get('count').hasError('min') && calculatorForm.get('count').touched">Ilość musi być
+          większa od 0</div>
+
+      </div>
     </div>
     <div class="col position-relative">
       <div class="form-group">

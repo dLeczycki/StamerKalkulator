@@ -16,6 +16,10 @@ p {
   cursor: pointer;
 }
 
+.card a:hover {
+  text-decoration: none;
+}
+
 .card:hover .card-img-wrapper {
   transition-duration: 500ms;
   transition-timing-function: ease-out;

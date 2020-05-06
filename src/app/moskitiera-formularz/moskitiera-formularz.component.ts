@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@Angular/forms';
 import { AlertifyService } from '../_services/alertify.service';
+import { AppendServiceService } from '../_services/append-service.service';
 
 @Component({
   selector: 'app-moskitiera-formularz',
@@ -9,7 +10,6 @@ import { AlertifyService } from '../_services/alertify.service';
 })
 export class MoskitieraFormularzComponent implements OnInit {
   @Output() result = new EventEmitter();
-
 
   calculatorForm: FormGroup;
   actualPrice = 0.00;
@@ -28,14 +28,15 @@ export class MoskitieraFormularzComponent implements OnInit {
     [73, 78, 84, 86, 92, 97, 103, 105, 111, 116, 119, 124, 130]];
   cornerConnector = false;
 
-  constructor(private alertify: AlertifyService) { }
+  constructor(private alertify: AlertifyService, public appendService: AppendServiceService) { }
 
   ngOnInit() {
     this.calculatorForm = new FormGroup({
       width: new FormControl('', [Validators.required, Validators.min(this.widthMin), Validators.max(this.widthMax)]),
       height: new FormControl('', [Validators.required, Validators.min(this.heightMin), Validators.max(this.heightMax)]),
       profile: new FormControl('', Validators.min(0)),
-      cornerConnector: new FormControl()
+      cornerConnector: new FormControl(),
+      count: new FormControl('1', [Validators.required, Validators.min(0)])
     });
   }
 
@@ -66,9 +67,10 @@ export class MoskitieraFormularzComponent implements OnInit {
       if (this.calculatorForm.controls['profile'].value != '') {
         price = price + (this.calculatorForm.controls['profile'].value * 11);
       }
+      price = price * this.calculatorForm.controls['count'].value;
       let priceDifference = price - this.actualPrice;
       this.actualPrice = price;
-      this.result.emit(priceDifference);
+      this.appendService.sumUp(priceDifference);
     } else {
       this.actualPrice = 0;
     }

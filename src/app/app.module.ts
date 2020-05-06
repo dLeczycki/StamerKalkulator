@@ -12,6 +12,7 @@ import { appRoutes } from './routes';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { MoskitieraFormularzComponent } from './moskitiera-formularz/moskitiera-formularz.component';
+import { AppendServiceService } from './_services/append-service.service';
 
 @NgModule({
    declarations: [
@@ -29,9 +30,10 @@ import { MoskitieraFormularzComponent } from './moskitiera-formularz/moskitiera-
       CollapseModule.forRoot(),
       ReactiveFormsModule
    ],
-   providers: [],
+   providers: [AppendServiceService],
    bootstrap: [
       AppComponent
-   ]
+   ],
+   entryComponents: [MoskitieraFormularzComponent]
 })
 export class AppModule { }
