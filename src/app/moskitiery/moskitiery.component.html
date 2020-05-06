@@ -12,10 +12,12 @@
   <app-moskitiera-formularz></app-moskitiera-formularz>
   <template #dynamicComponentContainer></template>
 </div>
-<button type="submit" class="btn btn-success mt-3 ml-3 pt-2 pb-2 pr-3 pl-3 rounded" (click)="addRow()"><i
-    class="fas fa-plus"></i></button>
-<button type="submit" class="btn btn-danger mt-3 ml-3 pt-2 pb-2 pr-3 pl-3 rounded" (click)="removeRow()"><i
-    class="fas fa-minus"></i></button>
+<div class="btn-wrapper">
+  <button type="submit" class="btn btn-success mt-3 pt-2 pb-2 pr-3 pl-3 rounded" (click)="addRow()"><i
+      class="fas fa-plus"></i></button>
+  <button type="submit" class="btn btn-danger mt-3 ml-3 pt-2 pb-2 pr-3 pl-3 rounded" (click)="removeRow()"><i
+      class="fas fa-minus"></i></button>
+</div>
 <div class="sum">
   <h2>Razem: <span>{{sum.toFixed(2)}}</span> zł</h2>
 </div>

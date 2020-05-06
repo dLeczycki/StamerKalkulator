@@ -29,3 +29,44 @@ a {
 .copywright p {
   margin: 0;
 }
+
+.socials {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 20px;
+}
+
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 90vw;
+  }
+
+  .contact span,
+  .contact a {
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .socials {
+    justify-content: center;
+  }
+
+  .socials button:nth-child(1) {
+    margin-right: 10px;
+  }
+
+  .socials button:nth-child(2) {
+    margin-left: 10px;
+  }
+
+  .contact span,
+  .contact a {
+    text-align: left;
+    display: inline;
+  }
+}

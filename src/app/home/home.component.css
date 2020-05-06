@@ -7,6 +7,11 @@ p {
   letter-spacing: 2px;
 }
 
+.categories-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .card-body {
   background-color: #343434;
   color: white;
@@ -45,3 +50,5 @@ p {
   transition-duration: 500ms;
   transition-timing-function: ease-out;
 }
+
+@media (max-width: 992px) {}

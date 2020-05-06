@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { MoskitieraFormularzComponent } from './moskitiera-formularz/moskitiera-formularz.component';
 import { AppendServiceService } from './_services/append-service.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
    declarations: [
@@ -28,7 +29,8 @@ import { AppendServiceService } from './_services/append-service.service';
       RouterModule.forRoot(appRoutes),
       BrowserAnimationsModule,
       CollapseModule.forRoot(),
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      NgbModule
    ],
    providers: [AppendServiceService],
    bootstrap: [

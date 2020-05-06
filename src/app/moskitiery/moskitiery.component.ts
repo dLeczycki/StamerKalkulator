@@ -30,10 +30,12 @@ export class MoskitieryComponent implements OnInit {
 
   removeRow() {
     const componentIndex = this.components.length - 1;
+    const component = this.components[componentIndex];
 
     if (componentIndex !== -1) {
       this.dynamicComponentContainer.remove(componentIndex);
       this.components.splice(componentIndex, 1);
+      // this.appendService.sumUp(-component.actualPrice)
     } else {
       this.alertify.error("Nie możesz usunąć więcej wierszy");
     }

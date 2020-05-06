@@ -11,8 +11,8 @@ import { AppendServiceService } from '../_services/append-service.service';
 export class MoskitieraFormularzComponent implements OnInit {
   @Output() result = new EventEmitter();
 
-  calculatorForm: FormGroup;
-  actualPrice = 0.00;
+  public calculatorForm: FormGroup;
+  public actualPrice = 0.00;
   widthMin = 30;
   widthMax = 150;
   heightMin = 100;
@@ -38,6 +38,10 @@ export class MoskitieraFormularzComponent implements OnInit {
       cornerConnector: new FormControl(),
       count: new FormControl('1', [Validators.required, Validators.min(0)])
     });
+  }
+
+  ngOnDestroy() {
+    this.appendService.sumUp(-this.actualPrice);
   }
 
   calculate() {
@@ -72,7 +76,9 @@ export class MoskitieraFormularzComponent implements OnInit {
       this.actualPrice = price;
       this.appendService.sumUp(priceDifference);
     } else {
+      let priceDifference = -this.actualPrice;
       this.actualPrice = 0;
+      this.appendService.sumUp(priceDifference);
     }
   }
 

@@ -43,32 +43,27 @@
         <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Kontakt</h5>
 
         <ul class="list-unstyled">
-          <li>
+          <li class="contact">
             <span class="fa fa-phone pr-2"></span>
             <a href="tel:222906275">
               22 290 62 75
             </a>
           </li>
-          <li>
+          <li class="contact">
             <span class="fa fa-envelope pr-2 mt-2"></span>
             <a href="mailto:biuro@stamer.pl">
               biuro@stamer.pl
             </a>
           </li>
-          <div class="text-center mt-2">
-            <li class="list-inline-item pr-3">
-              <button (click)="goToFacebook()" class="btn btn-info btn-sm text-light rounded">
-                <i class="fab fa-facebook-f"> </i>
-              </button>
+          <li class="socials">
+            <button (click)="goToFacebook()" class="btn btn-info btn-sm text-light rounded">
+              <i class="fab fa-facebook-f"> </i>
+            </button>
 
-            </li>
-            <li class="list-inline-item pr-3">
-              <button (click)="goToInstagram()" class="btn btn-danger btn-sm text-light rounded">
-                <i class="fab fa-instagram"> </i>
-              </button>
-
-            </li>
-          </div>
+            <button (click)="goToInstagram()" class="btn btn-danger btn-sm text-light rounded">
+              <i class="fab fa-instagram"> </i>
+            </button>
+          </li>
         </ul>
 
       </div>

@@ -46,9 +46,10 @@
         </div>
       </div>
     </div>
-    <div class="col position-relative">
+    <div class="col position-relative checkbox-wrapper">
       <input class="checkbox center-content" type="checkbox" [checked]="cornerConnector"
         (change)="cornerConnector = !cornerConnector; calculate();" formControlName="cornerConnector" />
+      <label class="checkbox-label">Narożnik wewnętrzny aluminowy</label>
     </div>
     <div class="col">
       <div class="form-group">

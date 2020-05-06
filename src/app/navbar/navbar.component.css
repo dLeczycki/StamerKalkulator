@@ -1,0 +1,13 @@
+@media (max-width: 992px) {
+  nav img {
+    margin: 0 auto;
+  }
+
+  .navbar-nav:first-child {
+    padding-top: 20px;
+  }
+
+  .navbar-nav .nav-item {
+    text-align: center;
+  }
+}
