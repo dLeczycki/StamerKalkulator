@@ -2,6 +2,14 @@
   margin-top: 30px;
 }
 
+.col-middle {
+  max-width: 150px;
+}
+
+.col-small {
+  max-width: 130px;
+}
+
 .sum h2 {
   text-align: right;
   margin-top: 50px;
@@ -19,5 +27,14 @@
 
   .btn-wrapper {
     text-align: center;
+  }
+
+  .col-middle {
+    max-width: 90vw;
+  }
+
+  .sum h2 {
+    text-align: center;
+    padding-right: 0;
   }
 }

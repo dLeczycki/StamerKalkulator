@@ -1,74 +1,125 @@
 <form class="form" [formGroup]="calculatorForm" (ngSubmit)="calculate()">
   <div class="row">
-    <div class="col">
+    <div class="col col-middle">
       <div class="form-group">
         <input type="text"
           [ngClass]="{'is-invalid': calculatorForm.get('width').errors && calculatorForm.get('width').touched}"
-          class="form-control" formControlName="width" placeholder="Szerokość [mm]" (change)="calculate()">
-        <div class="invalid-feedback"
+          class="form-control" formControlName="width" placeholder="Szerokość [cm]" (change)="calculate()">
+        <div class="invalid-feedback center-content"
           *ngIf="calculatorForm.get('width').hasError('required') && calculatorForm.get('width').touched">Pole nie może
           być puste</div>
-        <div class="invalid-feedback"
+        <div class="invalid-feedback center-content"
           *ngIf="calculatorForm.get('width').hasError('min') && calculatorForm.get('width').touched">Szerokość musi byc
           większa niż 30mm</div>
-        <div class="invalid-feedback"
+        <div class="invalid-feedback center-content"
           *ngIf="calculatorForm.get('width').hasError('max') && calculatorForm.get('width').touched">Szerokość nie może
           przekraczać 150mm
         </div>
       </div>
     </div>
-    <div class="col">
+    <div class="col col-middle">
       <div class="form-group">
         <input type="text"
           [ngClass]="{'is-invalid': calculatorForm.get('height').errors && calculatorForm.get('height').touched}"
-          class="form-control" formControlName="height" placeholder="Wysokość [mm]" (change)="calculate()">
-        <div class="invalid-feedback"
+          class="form-control" formControlName="height" placeholder="Wysokość [cm]" (change)="calculate()">
+        <div class="invalid-feedback center-content"
           *ngIf="calculatorForm.get('height').hasError('required') && calculatorForm.get('height').touched">Pole nie
           może
           być puste</div>
-        <div class="invalid-feedback"
+        <div class="invalid-feedback center-content"
           *ngIf="calculatorForm.get('height').hasError('min') && calculatorForm.get('height').touched">Wysokość musi byc
           większa niż 100mm</div>
-        <div class="invalid-feedback"
+        <div class="invalid-feedback center-content"
           *ngIf="calculatorForm.get('height').hasError('max') && calculatorForm.get('height').touched">Wysokość nie może
           przekraczać 220mm
         </div>
       </div>
     </div>
-    <div class="col">
-      <div class=" form-group">
-        <input type="text"
-          [ngClass]="{'is-invalid': calculatorForm.get('profile').errors && calculatorForm.get('profile').touched}"
-          class="form-control" formControlName="profile" placeholder="Profil rozporowy [mb]" (change)="calculate()">
-        <div class="invalid-feedback"
-          *ngIf="calculatorForm.get('profile').hasError('min') && calculatorForm.get('profile').touched">Wprowadzona
-          wartość musi byc większa od 0
+    <div class="col col-middle center-content">
+      <div class="form-group">
+        <label>Profil rozporowy</label>
+        <input class="checkbox" type="checkbox" [checked]="profile" (change)="profile = !profile; calculate();"
+          formControlName="profile" />
+      </div>
+    </div>
+    <div class="col center-content">
+      <div class="form-group">
+        <label>Narożnik wewnętrzny aluminowy</label>
+        <input class="checkbox" type="checkbox" [checked]="cornerConnector"
+          (change)="cornerConnector = !cornerConnector; calculate();" formControlName="cornerConnector" />
+      </div>
+    </div>
+
+    <div class="col center-content">
+      <div class="form-group">
+        <label>Kolor obudowy</label>
+        <div class="color-panel">
+          <a class="" title="Biały" style="background-color: rgb(250, 250, 250);" (click)="selectColor($event)"></a>
+          <a class="" title="Brąz" style="background-color: rgb(51, 16, 16);" (click)="selectColor($event)"></a>
+          <a class="" title="Szary" style="background-color: rgb(201, 197, 197);" (click)="selectColor($event)"></a>
+          <a class="" title="Antracyt" style="background-color: rgb(82, 103, 110);" (click)=" selectColor($event)"></a>
+          <a class="" title="Złoty Dąb" style="background-color: rgb(181, 118, 31);" (click)="selectColor($event)"></a>
+          <a class="" title="Orzech" style="background-color: rgb(105, 66, 13);" (click)="selectColor($event)"></a>
+          <a class="" title="Mahoń" style="background-color: rgb(99, 24, 24);" (click)="selectColor($event)"></a>
+          <a class="" title="Winchester" style="background-color: rgb(189, 147, 21);" (click)="selectColor($event)"></a>
         </div>
       </div>
     </div>
-    <div class="col position-relative checkbox-wrapper">
-      <input class="checkbox center-content" type="checkbox" [checked]="cornerConnector"
-        (change)="cornerConnector = !cornerConnector; calculate();" formControlName="cornerConnector" />
-      <label class="checkbox-label">Narożnik wewnętrzny aluminowy</label>
-    </div>
-    <div class="col">
+  </div>
+  <div class="row">
+
+    <div class="col col-small center-content">
       <div class="form-group">
-        <input type="text"
+        <label>Kolor siatki</label>
+        <div class="color-panel">
+          <a class="" title="Czarny" style="background-color: rgb(18, 17, 17);" (click)="selectColor($event)"></a>
+          <a class="" title="Szary" style="background-color: rgb(204, 202, 202);" (click)="selectColor($event)"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class=" form-group">
+        <select class="form-control" name="singleSelect" aria-placeholder="Uchwyt montażowy">
+          <option value="" disabled selected>Uchwyt montażowy</option>
+          <option class="form-control" value="option-1">Sprężynki (polecamy)</option>
+          <option class="form-control" value="option-2">Blaszki 2mm</option>
+          <option class="form-control" value="option-3">Blaszki 5mm</option>
+          <option class="form-control" value="option-4">Blaszki 9mm</option>
+          <option class="form-control" value="option-5">Blaszki 12mm</option>
+          <option class="form-control" value="option-6">Blaszki 15mm</option>
+          <option class="form-control" value="option-7">Blaszki 18mm</option>
+          <option class="form-control" value="option-8">Blaszki 20mm</option>
+          <option class="form-control" value="option-9">Blaszki 25mm</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class=" form-group">
+        <input type="text" class="form-control" placeholder="Grubość felca z uszczelką włącznie [cm]"
+          (change)="calculate()">
+      </div>
+    </div>
+
+    <div class="col col-middle">
+      <div class="form-group amount">
+        <label>Ilość: </label>
+        <input type="number"
           [ngClass]="{'is-invalid': calculatorForm.get('count').errors && calculatorForm.get('count').touched}"
           class="form-control" formControlName="count" placeholder="Ilość" (change)="calculate()">
-        <div class="invalid-feedback"
+        <div class="invalid-feedback center-content"
           *ngIf="calculatorForm.get('count').hasError('required') && calculatorForm.get('count').touched">Pole nie
           może
           być puste</div>
-        <div class="invalid-feedback"
+        <div class="invalid-feedback center-content"
           *ngIf="calculatorForm.get('count').hasError('min') && calculatorForm.get('count').touched">Ilość musi być
           większa od 0</div>
-
       </div>
     </div>
-    <div class="col position-relative">
+    <div class="col col-middle position-relative">
       <div class="form-group">
-        <p class="center-content"><span>{{actualPrice.toFixed(2)}}</span> zł</p>
+        <p>Koszt: <span>{{actualPrice.toFixed(2)}}</span> zł</p>
       </div>
     </div>
   </div>

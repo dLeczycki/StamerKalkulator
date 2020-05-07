@@ -1,7 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@Angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AlertifyService } from '../_services/alertify.service';
 import { AppendServiceService } from '../_services/append-service.service';
+import { $ } from 'protractor';
 
 @Component({
   selector: 'app-moskitiera-formularz',
@@ -27,6 +28,7 @@ export class MoskitieraFormularzComponent implements OnInit {
     [68, 72, 76, 80, 85, 89, 93, 97, 101, 105, 110, 114, 118],
     [73, 78, 84, 86, 92, 97, 103, 105, 111, 116, 119, 124, 130]];
   cornerConnector = false;
+  profile = false;
 
   constructor(private alertify: AlertifyService, public appendService: AppendServiceService) { }
 
@@ -34,7 +36,7 @@ export class MoskitieraFormularzComponent implements OnInit {
     this.calculatorForm = new FormGroup({
       width: new FormControl('', [Validators.required, Validators.min(this.widthMin), Validators.max(this.widthMax)]),
       height: new FormControl('', [Validators.required, Validators.min(this.heightMin), Validators.max(this.heightMax)]),
-      profile: new FormControl('', Validators.min(0)),
+      profile: new FormControl(),
       cornerConnector: new FormControl(),
       count: new FormControl('1', [Validators.required, Validators.min(0)])
     });
@@ -68,8 +70,8 @@ export class MoskitieraFormularzComponent implements OnInit {
       if (this.cornerConnector) {
         price = price * 1.15;
       }
-      if (this.calculatorForm.controls['profile'].value != '') {
-        price = price + (this.calculatorForm.controls['profile'].value * 11);
+      if (this.profile) {
+        price = price + (1 * 11);
       }
       price = price * this.calculatorForm.controls['count'].value;
       let priceDifference = price - this.actualPrice;
@@ -82,5 +84,19 @@ export class MoskitieraFormularzComponent implements OnInit {
     }
   }
 
+  selectColor(event) {
+    var siblingsList = [],
+      sibling = event.target.parentNode.firstChild;
+
+    while (sibling) {
+      if (sibling !== this && sibling.nodeType === Node.ELEMENT_NODE)
+        siblingsList.push(sibling);
+      sibling = sibling.nextElementSibling || sibling.nextSibling;
+    }
+    siblingsList.forEach(element => {
+      element.classList.remove('selected');
+    });
+    event.target.classList.add('selected');
+  }
 
 }

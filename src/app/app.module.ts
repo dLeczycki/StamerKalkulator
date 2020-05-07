@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -30,9 +31,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       BrowserAnimationsModule,
       CollapseModule.forRoot(),
       ReactiveFormsModule,
-      NgbModule
+      NgbModule, RouterModule.forRoot([
+         { path: '', component: HomeComponent, pathMatch: 'full' },
+         { path: 'moskitiery', component: MoskitieryComponent },
+         { path: '**', component: HomeComponent }
+      ])
    ],
-   providers: [AppendServiceService],
+   providers: [AppendServiceService, { provide: LocationStrategy, useClass: HashLocationStrategy }],
    bootstrap: [
       AppComponent
    ],
