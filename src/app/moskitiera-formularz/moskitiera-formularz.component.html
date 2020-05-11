@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col col-middle">
       <div class="form-group">
-        <input type="text"
+        <input type="number"
           [ngClass]="{'is-invalid': calculatorForm.get('width').errors && calculatorForm.get('width').touched}"
           class="form-control" formControlName="width" placeholder="Szerokość [cm]" (change)="calculate()">
         <div class="invalid-feedback center-content"
@@ -10,16 +10,16 @@
           być puste</div>
         <div class="invalid-feedback center-content"
           *ngIf="calculatorForm.get('width').hasError('min') && calculatorForm.get('width').touched">Szerokość musi byc
-          większa niż 30mm</div>
+          większa niż 30cm</div>
         <div class="invalid-feedback center-content"
           *ngIf="calculatorForm.get('width').hasError('max') && calculatorForm.get('width').touched">Szerokość nie może
-          przekraczać 150mm
+          przekraczać 150cm
         </div>
       </div>
     </div>
     <div class="col col-middle">
       <div class="form-group">
-        <input type="text"
+        <input type="number"
           [ngClass]="{'is-invalid': calculatorForm.get('height').errors && calculatorForm.get('height').touched}"
           class="form-control" formControlName="height" placeholder="Wysokość [cm]" (change)="calculate()">
         <div class="invalid-feedback center-content"
@@ -28,18 +28,11 @@
           być puste</div>
         <div class="invalid-feedback center-content"
           *ngIf="calculatorForm.get('height').hasError('min') && calculatorForm.get('height').touched">Wysokość musi byc
-          większa niż 100mm</div>
+          większa niż 100cm</div>
         <div class="invalid-feedback center-content"
           *ngIf="calculatorForm.get('height').hasError('max') && calculatorForm.get('height').touched">Wysokość nie może
-          przekraczać 220mm
+          przekraczać 220cm
         </div>
-      </div>
-    </div>
-    <div class="col col-middle center-content">
-      <div class="form-group">
-        <label>Profil rozporowy</label>
-        <input class="checkbox" type="checkbox" [checked]="profile" (change)="profile = !profile; calculate();"
-          formControlName="profile" />
       </div>
     </div>
     <div class="col center-content">
@@ -65,8 +58,6 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
 
     <div class="col col-small center-content">
       <div class="form-group">
@@ -78,6 +69,8 @@
       </div>
     </div>
 
+  </div>
+  <div class="row">
     <div class="col">
       <div class=" form-group">
         <select class="form-control" name="singleSelect" aria-placeholder="Uchwyt montażowy">
@@ -97,7 +90,7 @@
 
     <div class="col">
       <div class=" form-group">
-        <input type="text" class="form-control" placeholder="Grubość felca z uszczelką włącznie [cm]"
+        <input type="number" class="form-control" placeholder="Grubość felca z uszczelką włącznie [cm]"
           (change)="calculate()">
       </div>
     </div>

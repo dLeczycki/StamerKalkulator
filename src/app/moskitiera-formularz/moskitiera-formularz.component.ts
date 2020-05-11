@@ -28,7 +28,6 @@ export class MoskitieraFormularzComponent implements OnInit {
     [68, 72, 76, 80, 85, 89, 93, 97, 101, 105, 110, 114, 118],
     [73, 78, 84, 86, 92, 97, 103, 105, 111, 116, 119, 124, 130]];
   cornerConnector = false;
-  profile = false;
 
   constructor(private alertify: AlertifyService, public appendService: AppendServiceService) { }
 
@@ -36,7 +35,6 @@ export class MoskitieraFormularzComponent implements OnInit {
     this.calculatorForm = new FormGroup({
       width: new FormControl('', [Validators.required, Validators.min(this.widthMin), Validators.max(this.widthMax)]),
       height: new FormControl('', [Validators.required, Validators.min(this.heightMin), Validators.max(this.heightMax)]),
-      profile: new FormControl(),
       cornerConnector: new FormControl(),
       count: new FormControl('1', [Validators.required, Validators.min(0)])
     });
@@ -69,9 +67,6 @@ export class MoskitieraFormularzComponent implements OnInit {
       price = this.price[heightPosition][widthPosition];
       if (this.cornerConnector) {
         price = price * 1.15;
-      }
-      if (this.profile) {
-        price = price + (1 * 11);
       }
       price = price * this.calculatorForm.controls['count'].value;
       let priceDifference = price - this.actualPrice;
