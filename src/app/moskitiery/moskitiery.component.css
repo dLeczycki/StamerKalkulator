@@ -10,7 +10,7 @@
   max-width: 130px;
 }
 
-.sum h2 {
+.sum {
   text-align: right;
   margin-top: 50px;
   padding-right: 100px;
@@ -33,7 +33,7 @@
     max-width: 90vw;
   }
 
-  .sum h2 {
+  .sum {
     text-align: center;
     padding-right: 0;
   }

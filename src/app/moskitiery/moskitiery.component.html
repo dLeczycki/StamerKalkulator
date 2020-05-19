@@ -1,6 +1,6 @@
 <h1 class="text-center">Moskitiery kołnierzowe</h1>
 <hr>
-<div class="moskitiery">
+<div class="moskitiery" #moskitiery>
   <app-moskitiera-formularz></app-moskitiera-formularz>
   <template #dynamicComponentContainer></template>
 </div>
@@ -12,4 +12,6 @@
 </div>
 <div class="sum">
   <h2>Razem: <span>{{sum.toFixed(2)}}</span> zł</h2>
+  <button type="submit" (click)="downloadPricing()" *ngIf="sum>0" class="btn btn-outline-primary">Pobierz wycenę dla
+    producenta</button>
 </div>

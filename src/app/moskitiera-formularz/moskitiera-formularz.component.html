@@ -4,7 +4,7 @@
       <div class="form-group">
         <input type="number"
           [ngClass]="{'is-invalid': calculatorForm.get('width').errors && calculatorForm.get('width').touched}"
-          class="form-control" formControlName="width" placeholder="Szerokość [cm]" (change)="calculate()">
+          class="form-control width" formControlName="width" placeholder="Szerokość [cm]" (change)="calculate()">
         <div class="invalid-feedback center-content"
           *ngIf="calculatorForm.get('width').hasError('required') && calculatorForm.get('width').touched">Pole nie może
           być puste</div>
@@ -21,7 +21,7 @@
       <div class="form-group">
         <input type="number"
           [ngClass]="{'is-invalid': calculatorForm.get('height').errors && calculatorForm.get('height').touched}"
-          class="form-control" formControlName="height" placeholder="Wysokość [cm]" (change)="calculate()">
+          class="form-control height" formControlName="height" placeholder="Wysokość [cm]" (change)="calculate()">
         <div class="invalid-feedback center-content"
           *ngIf="calculatorForm.get('height').hasError('required') && calculatorForm.get('height').touched">Pole nie
           może
@@ -38,7 +38,7 @@
     <div class="col center-content">
       <div class="form-group">
         <label>Narożnik wewnętrzny aluminowy</label>
-        <input class="checkbox" type="checkbox" [checked]="cornerConnector"
+        <input class="checkbox cornerConnector" type="checkbox" [checked]="cornerConnector"
           (change)="cornerConnector = !cornerConnector; calculate();" formControlName="cornerConnector" />
       </div>
     </div>
@@ -47,14 +47,22 @@
       <div class="form-group">
         <label>Kolor obudowy</label>
         <div class="color-panel">
-          <a class="" title="Biały" style="background-color: rgb(250, 250, 250);" (click)="selectColor($event)"></a>
-          <a class="" title="Brąz" style="background-color: rgb(51, 16, 16);" (click)="selectColor($event)"></a>
-          <a class="" title="Szary" style="background-color: rgb(201, 197, 197);" (click)="selectColor($event)"></a>
-          <a class="" title="Antracyt" style="background-color: rgb(82, 103, 110);" (click)=" selectColor($event)"></a>
-          <a class="" title="Złoty Dąb" style="background-color: rgb(181, 118, 31);" (click)="selectColor($event)"></a>
-          <a class="" title="Orzech" style="background-color: rgb(105, 66, 13);" (click)="selectColor($event)"></a>
-          <a class="" title="Mahoń" style="background-color: rgb(99, 24, 24);" (click)="selectColor($event)"></a>
-          <a class="" title="Winchester" style="background-color: rgb(189, 147, 21);" (click)="selectColor($event)"></a>
+          <a class="casing-color-option selected" title="Bialy" style="background-color: rgb(250, 250, 250);"
+            (click)="selectColor($event)"></a>
+          <a class="casing-color-option" title="Braz" style="background-color: rgb(51, 16, 16);"
+            (click)="selectColor($event)"></a>
+          <a class="casing-color-option" title="Szary" style="background-color: rgb(201, 197, 197);"
+            (click)="selectColor($event)"></a>
+          <a class="casing-color-option" title="Antracyt" style="background-color: rgb(82, 103, 110);"
+            (click)=" selectColor($event)"></a>
+          <a class="casing-color-option" title="Zloty Dab" style="background-color: rgb(181, 118, 31);"
+            (click)="selectColor($event)"></a>
+          <a class="casing-color-option" title="Orzech" style="background-color: rgb(105, 66, 13);"
+            (click)="selectColor($event)"></a>
+          <a class="casing-color-option" title="Mahon" style="background-color: rgb(99, 24, 24);"
+            (click)="selectColor($event)"></a>
+          <a class="casing-color-option" title="Winchester" style="background-color: rgb(189, 147, 21);"
+            (click)="selectColor($event)"></a>
         </div>
       </div>
     </div>
@@ -63,8 +71,10 @@
       <div class="form-group">
         <label>Kolor siatki</label>
         <div class="color-panel">
-          <a class="" title="Czarny" style="background-color: rgb(18, 17, 17);" (click)="selectColor($event)"></a>
-          <a class="" title="Szary" style="background-color: rgb(204, 202, 202);" (click)="selectColor($event)"></a>
+          <a class="net-color-option selected" title="Czarny" style="background-color: rgb(18, 17, 17);"
+            (click)="selectColor($event)"></a>
+          <a class="net-color-option" title="Szary" style="background-color: rgb(204, 202, 202);"
+            (click)="selectColor($event)"></a>
         </div>
       </div>
     </div>
@@ -73,34 +83,34 @@
   <div class="row">
     <div class="col">
       <div class=" form-group">
-        <select class="form-control" name="singleSelect" aria-placeholder="Uchwyt montażowy">
-          <option value="" disabled selected>Uchwyt montażowy</option>
-          <option class="form-control" value="option-1">Sprężynki (polecamy)</option>
-          <option class="form-control" value="option-2">Blaszki 2mm</option>
-          <option class="form-control" value="option-3">Blaszki 5mm</option>
-          <option class="form-control" value="option-4">Blaszki 9mm</option>
-          <option class="form-control" value="option-5">Blaszki 12mm</option>
-          <option class="form-control" value="option-6">Blaszki 15mm</option>
-          <option class="form-control" value="option-7">Blaszki 18mm</option>
-          <option class="form-control" value="option-8">Blaszki 20mm</option>
-          <option class="form-control" value="option-9">Blaszki 25mm</option>
+        <select class="form-control handler" name="singleSelect" aria-placeholder="Uchwyt montażowy">
+          <option value="Sprezynki" disabled selected>Uchwyt montażowy</option>
+          <option class="form-control" value="Sprezynki">Sprężynki (polecamy)</option>
+          <option class="form-control" value="Blaszki 2mm">Blaszki 2mm</option>
+          <option class="form-control" value="Blaszki 5mm">Blaszki 5mm</option>
+          <option class="form-control" value="Blaszki 9mm">Blaszki 9mm</option>
+          <option class="form-control" value="Blaszki 12mm">Blaszki 12mm</option>
+          <option class="form-control" value="Blaszki 15mm">Blaszki 15mm</option>
+          <option class="form-control" value="Blaszki 18mm">Blaszki 18mm</option>
+          <option class="form-control" value="Blaszki 20mm">Blaszki 20mm</option>
+          <option class="form-control" value="Blaszki 25mm">Blaszki 25mm</option>
         </select>
       </div>
     </div>
 
     <div class="col">
       <div class=" form-group">
-        <input type="number" class="form-control" placeholder="Grubość felca z uszczelką włącznie [cm]"
+        <input type="number" class="form-control thickness" placeholder="Grubość felca z uszczelką włącznie [cm]"
           (change)="calculate()">
       </div>
     </div>
 
     <div class="col col-middle">
-      <div class="form-group amount">
+      <div class="form-group amount-container">
         <label>Ilość: </label>
         <input type="number"
           [ngClass]="{'is-invalid': calculatorForm.get('count').errors && calculatorForm.get('count').touched}"
-          class="form-control" formControlName="count" placeholder="Ilość" (change)="calculate()">
+          class="form-control amount" formControlName="count" placeholder="Ilość" (change)="calculate()">
         <div class="invalid-feedback center-content"
           *ngIf="calculatorForm.get('count').hasError('required') && calculatorForm.get('count').touched">Pole nie
           może
@@ -112,7 +122,7 @@
     </div>
     <div class="col col-middle position-relative">
       <div class="form-group">
-        <p>Koszt: <span>{{actualPrice.toFixed(2)}}</span> zł</p>
+        <p>Koszt: <span class="price">{{actualPrice.toFixed(2)}}</span> zł</p>
       </div>
     </div>
   </div>

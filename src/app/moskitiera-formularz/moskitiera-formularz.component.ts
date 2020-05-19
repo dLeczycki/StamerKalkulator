@@ -50,7 +50,6 @@ export class MoskitieraFormularzComponent implements OnInit {
       let widthPosition;
       let heightPosition = 0;
       let price = 0;
-      console.log("szerokość: " + this.calculatorForm.controls['width'].value);
       for (let i in this.price[0]) {
         if (widthIteration >= this.calculatorForm.controls['width'].value) {
           widthPosition = i;

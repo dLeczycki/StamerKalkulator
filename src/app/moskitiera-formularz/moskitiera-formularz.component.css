@@ -73,21 +73,21 @@ input[type=number]::-webkit-outer-spin-button {
   box-shadow: 0 0 3px red;
 }
 
-.amount {
+.amount-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.amount label {
+.amount-container label {
   display: block;
   margin: 0;
   padding-right: 20px;
   text-align: center;
 }
 
-.amount input {
+.amount-container input {
   width: 50%;
 }
 
