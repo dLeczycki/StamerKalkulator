@@ -1,6 +1,6 @@
 # StamerKalkulator
 
-This project was supposed to help local enterpreneur in blinds distribution. Though project collappsed and is not used anymore it was a nice practice for using angular and creating some SPA.
+This project was supposed to help local enterpreneur in blinds distribution. Though project collappsed and is not used anymore it was a nice practice for using Angular and creating some SPA.
 
 ## Technologies
 
