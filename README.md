@@ -1,5 +1,16 @@
 # StamerKalkulator
 
+This project was supposed to help local enterpreneur in blinds distribution. Though project collappsed and is not used anymore it was a nice practice for using angular and creating some SPA.
+
+## Technologies
+
+I used:
+- HTML
+- CSS
+- Angular v. 9.1.4
+
+# Angular generated Information
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.4.
 
 ## Development server
